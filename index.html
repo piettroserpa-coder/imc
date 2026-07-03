@@ -1,0 +1,180 @@
+<!-- 1 - Declaração do tipo de documento HTML5 -->
+<!DOCTYPE html>
+<!-- 2 - Início do documento HTML com idioma português do Brasil -->
+<html lang="pt-BR">
+<!-- 3 - Início da seção head (cabeçalho da página) -->
+
+<head>
+    <!-- 4 - Define o conjunto de caracteres como UTF-8 para suportar acentuação -->
+    <meta charset="UTF-8">
+    <!-- 5 - Configura a viewport para tornar o site responsivo em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 6 - Título da página que aparece na aba do navegador -->
+    <title>Sistema de Consulta de IMC</title>
+    <!-- 7 - Link para o arquivo CSS externo com os estilos da página -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 8 - Fechamento da seção head -->
+</head>
+<!-- 9 - Início do corpo da página (conteúdo visível) -->
+
+<body>
+    <!-- 10 - Container principal que centraliza todo o conteúdo -->
+    <div class="container">
+        <!-- 11 - Título principal da aplicação com emoji de hospital -->
+        <h1>🏥 Calculadora de IMC</h1>
+        <!-- 12 - Subtítulo explicativo -->
+        <p class="subtitle">Índice de Massa Corporal</p>
+
+        <!-- 13 - Início do formulário onde o usuário insere os dados -->
+        <!-- 14 - id="imcForm" será usado no JavaScript para capturar o evento de submit -->
+        <form id="imcForm">
+            <!-- 15 - Grupo de campos do formulário para o nome -->
+            <div class="form-group">
+                <!-- 16 - Label do campo nome -->
+                <label for="nome">Nome</label>
+                <!-- 17 - Campo de texto para o nome -->
+                <!-- 18 - id="nome" usado no JavaScript para pegar o valor -->
+                <!-- 19 - placeholder: texto de exemplo que aparece dentro do campo -->
+                <!-- 20 - required: torna o campo obrigatório -->
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+                <!-- 21 - Fechamento do grupo do nome -->
+            </div>
+
+            <!-- 22 - Grupo de campos do formulário para a idade -->
+            <div class="form-group">
+                <!-- 23 - Label do campo idade -->
+                <label for="idade">Idade</label>
+                <!-- 24 - Campo numérico para a idade -->
+                <!-- 25 - min="2" e max="120": definem os valores mínimo e máximo permitidos -->
+                <input type="number" id="idade" placeholder="Digite sua idade" min="2" max="120" required>
+                <!-- 26 - Fechamento do grupo da idade -->
+            </div>
+
+            <!-- 27 - Grupo de campos do formulário para o peso -->
+            <div class="form-group">
+                <!-- 28 - Label do campo peso -->
+                <label for="peso">Peso (kg)</label>
+                <!-- 29 - Campo numérico para o peso -->
+                <!-- 30 - step="0.1": permite valores com uma casa decimal -->
+                <!-- 31 - min="1" e max="500": definem os valores mínimo e máximo permitidos -->
+                <input type="number" id="peso" placeholder="Ex: 70.5" step="0.1" min="1" max="500" required>
+                <!-- 32 - Fechamento do grupo do peso -->
+            </div>
+
+            <!-- 33 - Grupo de campos do formulário para a altura -->
+            <div class="form-group">
+                <!-- 34 - Label do campo altura -->
+                <label for="altura">Altura (m)</label>
+                <!-- 35 - Campo numérico para a altura -->
+                <!-- 36 - step="0.01": permite valores com duas casas decimais -->
+                <!-- 37 - min="0.5" e max="2.5": definem os valores mínimo e máximo permitidos -->
+                <input type="number" id="altura" placeholder="Ex: 1.75" step="0.01" min="0.5" max="2.5" required>
+                <!-- 38 - Fechamento do grupo da altura -->
+            </div>
+
+            <!-- 39 - Div para exibir mensagens de erro (inicialmente oculta) -->
+            <!-- 40 - id="errorMessage" será usado no JavaScript para mostrar erros -->
+            <div class="error" id="errorMessage"></div>
+
+            <!-- 41 - Botão para enviar o formulário e calcular o IMC -->
+            <!-- 42 - type="submit": faz o formulário ser submetido quando clicado -->
+            <button type="submit" class="btn">Calcular IMC</button>
+            <!-- 43 - Fechamento do formulário -->
+        </form>
+
+        <!-- 44 - Div que exibe os resultados do cálculo (inicialmente oculta) -->
+        <!-- 45 - id="resultados" será usado no JavaScript para mostrar/ocultar -->
+        <div class="resultados" id="resultados">
+            <!-- 46 - Box que mostra a classificação do IMC com cor de fundo específica -->
+            <!-- 47 - id="classificacaoBox" será usado no JavaScript para adicionar a classe CSS -->
+            <div id="classificacaoBox" class="classificacao"></div>
+
+            <!-- 48 - Item para exibir o nome -->
+            <!-- 49 - result-item: classe para estilização -->
+            <div class="result-item">
+                <!-- 50 - result-label: classe para a label do resultado -->
+                <span class="result-label">Nome</span>
+                <!-- 51 - result-value: classe para o valor do resultado -->
+                <!-- 52 - id="resultNome" será usado no JavaScript para preencher o valor -->
+                <span class="result-value" id="resultNome">-</span>
+                <!-- 53 - Fechamento do item nome -->
+            </div>
+
+            <!-- 54 - Item para exibir a idade -->
+            <div class="result-item">
+                <span class="result-label">Idade</span>
+                <span class="result-value" id="resultIdade">-</span>
+                <!-- 55 - Fechamento do item idade -->
+            </div>
+
+            <!-- 56 - Item para exibir o peso -->
+            <div class="result-item">
+                <span class="result-label">Peso</span>
+                <span class="result-value" id="resultPeso">-</span>
+                <!-- 57 - Fechamento do item peso -->
+            </div>
+
+            <!-- 58 - Item para exibir a altura -->
+            <div class="result-item">
+                <span class="result-label">Altura</span>
+                <span class="result-value" id="resultAltura">-</span>
+                <!-- 59 - Fechamento do item altura -->
+            </div>
+
+            <!-- 60 - Item para exibir o IMC calculado -->
+            <div class="result-item">
+                <span class="result-label">IMC</span>
+                <span class="result-value" id="resultIMC">-</span>
+                <!-- 61 - Fechamento do item IMC -->
+            </div>
+
+            <!-- 62 - Item para exibir a classificação do IMC -->
+            <div class="result-item">
+                <span class="result-label">Classificação</span>
+                <span class="result-value" id="resultClassificacao">-</span>
+                <!-- 63 - Fechamento do item classificação -->
+            </div>
+
+            <!-- 64 - Item para exibir a faixa de peso ideal -->
+            <div class="result-item">
+                <span class="result-label">Peso ideal</span>
+                <span class="result-value" id="resultPesoIdeal">-</span>
+                <!-- 65 - Fechamento do item peso ideal -->
+            </div>
+
+            <!-- 66 - Box com recomendações personalizadas -->
+            <!-- 67 - id="recomendacoesBox" será usado no JavaScript -->
+            <div id="recomendacoesBox" class="recomendacoes">
+                <!-- 68 - Título da seção de recomendações -->
+                <h3>💡 Recomendações</h3>
+                <!-- 69 - Lista não ordenada para as recomendações -->
+                <!-- 70 - id="recomendacoesList" será usado no JavaScript -->
+                <ul id="recomendacoesList"></ul>
+                <!-- 71 - Fechamento da box recomendações -->
+            </div>
+
+            <!-- 72 - Box informativo sobre o IMC -->
+            <div class="info-box">
+                <!-- 73 - Título da caixa informativa -->
+                <h4>ℹ️ Sobre o IMC</h4>
+                <!-- 74 - Texto explicativo sobre o IMC -->
+                <p>O Índice de Massa Corporal é uma medida internacional usada para calcular se uma pessoa está no peso
+                    ideal. Consulte um profissional de saúde para uma avaliação completa.</p>
+                <!-- 75 - Fechamento da box informativa -->
+            </div>
+
+            <!-- 76 - Botão para limpar os resultados -->
+            <!-- 77 - onclick="limparResultados()": chama a função JavaScript -->
+            <button class="btn-limpar" onclick="limparResultados()">Nova Consulta</button>
+            <!-- 78 - Fechamento da div resultados -->
+        </div>
+        <!-- 79 - Fechamento do container -->
+    </div>
+
+    <!-- 80 - Link para o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+    <!-- 81 - Fechamento do corpo da página -->
+</body>
+<!-- 82 - Fechamento do documento HTML -->
+
+</html>

@@ -1,0 +1,423 @@
+/* 1 - Reset básico - aplica a todos os elementos */
+* {
+    /* 2 - Remove margem padrão de todos os elementos */
+    margin: 0;
+    /* 3 - Remove padding padrão de todos os elementos */
+    padding: 0;
+    /* 4 - Faz com que padding e border sejam incluídos na largura/altura total */
+    box-sizing: border-box;
+}
+
+/* 5 - Estilo do corpo da página */
+body {
+    /* 6 - Define a fonte do texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 7 - Gradiente linear de roxo para azul */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* 8 - Altura mínima de 100% da viewport (tela do navegador) */
+    min-height: 100vh;
+    /* 9 - Usa flexbox para organizar os elementos */
+    display: flex;
+    /* 10 - Centraliza os itens horizontalmente */
+    justify-content: center;
+    /* 11 - Centraliza os itens verticalmente */
+    align-items: center;
+    /* 12 - Adiciona espaçamento interno de 20px em todos os lados */
+    padding: 20px;
+}
+
+/* 13 - Container principal - cartão branco com sombra */
+.container {
+    /* 14 - Fundo branco */
+    background: white;
+    /* 15 - Arredonda as bordas em 20px */
+    border-radius: 20px;
+    /* 16 - Espaçamento interno de 40px em todos os lados */
+    padding: 40px;
+    /* 17 - Largura máxima de 600px */
+    max-width: 600px;
+    /* 18 - Largura total dentro do limite máximo */
+    width: 100%;
+    /* 19 - Sombra para efeito de profundidade */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 20 - Estilo do título principal */
+h1 {
+    /* 21 - Cor cinza escuro */
+    color: #333;
+    /* 22 - Centraliza o texto */
+    text-align: center;
+    /* 23 - Margem inferior de 10px */
+    margin-bottom: 10px;
+    /* 24 - Tamanho da fonte */
+    font-size: 28px;
+}
+
+/* 25 - Estilo do subtítulo */
+.subtitle {
+    /* 26 - Centraliza o texto */
+    text-align: center;
+    /* 27 - Cor cinza médio */
+    color: #666;
+    /* 28 - Margem inferior de 30px */
+    margin-bottom: 30px;
+    /* 29 - Tamanho da fonte */
+    font-size: 14px;
+}
+
+/* 30 - Grupo de campos do formulário */
+.form-group {
+    /* 31 - Margem inferior de 20px */
+    margin-bottom: 20px;
+}
+
+/* 32 - Estilo das labels dos campos */
+label {
+    /* 33 - Faz a label ocupar toda a largura disponível */
+    display: block;
+    /* 34 - Margem inferior de 5px */
+    margin-bottom: 5px;
+    /* 35 - Cor cinza escuro */
+    color: #555;
+    /* 36 - Peso da fonte: negrito */
+    font-weight: 600;
+    /* 37 - Tamanho da fonte */
+    font-size: 14px;
+}
+
+/* 38 - Estilo dos inputs */
+input {
+    /* 39 - Ocupa toda a largura disponível */
+    width: 100%;
+    /* 40 - Espaçamento interno: 12px em cima/baixo e 15px nas laterais */
+    padding: 12px 15px;
+    /* 41 - Borda de 2px cinza claro */
+    border: 2px solid #e0e0e0;
+    /* 42 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 43 - Tamanho da fonte */
+    font-size: 16px;
+    /* 44 - Transição suave para mudanças de estilo */
+    transition: all 0.3s;
+}
+
+/* 45 - Estilo dos inputs quando estão em foco (clicados) */
+input:focus {
+    /* 46 - Remove o outline padrão do navegador */
+    outline: none;
+    /* 47 - Muda a cor da borda para roxo */
+    border-color: #667eea;
+    /* 48 - Adiciona uma sombra suave */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* 49 - Estilo do botão principal */
+.btn {
+    /* 50 - Ocupa toda a largura disponível */
+    width: 100%;
+    /* 51 - Espaçamento interno de 14px em todos os lados */
+    padding: 14px;
+    /* 52 - Gradiente de fundo */
+    background: linear-gradient(135deg, #e7e7e7 0%, #764ba2 100%);
+    /* 53 - Cor do texto: branco */
+    color: white;
+    /* 54 - Remove a borda padrão */
+    border: none;
+    /* 55 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 56 - Tamanho da fonte */
+    font-size: 18px;
+    /* 57 - Peso da fonte: negrito */
+    font-weight: 600;
+    /* 58 - Muda o cursor para mãozinha */
+    cursor: pointer;
+    /* 59 - Transições suaves para transformações e sombra */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 60 - Efeito hover do botão (mouse passa por cima) */
+.btn:hover {
+    /* 61 - Levanta o botão 2px para cima */
+    transform: translateY(-2px);
+    /* 62 - Adiciona uma sombra maior */
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 63 - Efeito quando o botão é clicado */
+.btn:active {
+    /* 64 - Volta à posição original */
+    transform: translateY(0);
+}
+
+/* 65 - Div que contém os resultados - inicialmente oculta */
+.resultados {
+    /* 66 - Margem superior de 30px */
+    margin-top: 30px;
+    /* 67 - Espaçamento interno de 20px em todos os lados */
+    padding: 20px;
+    /* 68 - Fundo cinza muito claro */
+    background: #f8f9fa;
+    /* 69 - Arredonda as bordas em 15px */
+    border-radius: 15px;
+    /* 70 - Oculta a div inicialmente */
+    display: none;
+}
+
+/* 71 - Quando a classe 'show' é adicionada, os resultados aparecem */
+.resultados.show {
+    /* 72 - Torna a div visível */
+    display: block;
+    /* 73 - Aplica a animação 'slideIn' com duração de 0.5 segundos */
+    animation: slideIn 0.5s ease;
+}
+
+/* 74 - Animação de deslizamento para os resultados */
+@keyframes slideIn {
+
+    /* 75 - Estado inicial da animação */
+    from {
+        /* 76 - Começa invisível (opacidade 0) */
+        opacity: 0;
+        /* 77 - Começa 20px abaixo da posição final */
+        transform: translateY(20px);
+    }
+
+    /* 78 - Estado final da animação */
+    to {
+        /* 79 - Termina visível (opacidade 1) */
+        opacity: 1;
+        /* 80 - Termina na posição original */
+        transform: translateY(0);
+    }
+}
+
+/* 81 - Cada item de resultado (label + valor) */
+.result-item {
+    /* 82 - Usa flexbox para alinhar os itens */
+    display: flex;
+    /* 83 - Espaça label e valor com espaço entre eles */
+    justify-content: space-between;
+    /* 84 - Espaçamento interno: 10px em cima/baixo e 0 nas laterais */
+    padding: 10px 0;
+    /* 85 - Linha separadora cinza clara na parte inferior */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 86 - Remove a borda do último item */
+.result-item:last-child {
+    /* 87 - Remove a linha separadora do último item */
+    border-bottom: none;
+}
+
+/* 88 - Estilo da label do resultado */
+.result-label {
+    /* 89 - Cor cinza médio */
+    color: #666;
+    /* 90 - Peso da fonte: médio */
+    font-weight: 500;
+}
+
+/* 91 - Estilo do valor do resultado */
+.result-value {
+    /* 92 - Cor cinza escuro */
+    color: #333;
+    /* 93 - Peso da fonte: negrito */
+    font-weight: 600;
+}
+
+/* 94 - Box da classificação do IMC */
+.classificacao {
+    /* 95 - Centraliza o texto */
+    text-align: center;
+    /* 96 - Espaçamento interno de 15px em todos os lados */
+    padding: 15px;
+    /* 97 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 98 - Margem: 15px em cima/baixo e 0 nas laterais */
+    margin: 15px 0;
+    /* 99 - Peso da fonte: negrito */
+    font-weight: 700;
+    /* 100 - Tamanho da fonte */
+    font-size: 18px;
+}
+
+/* 101 - Cores para Abaixo do peso */
+.classificacao.abaixo-peso {
+    /* 102 - Fundo amarelo claro */
+    background: #fff3cd;
+    /* 103 - Texto amarelo escuro */
+    color: #856404;
+}
+
+/* 104 - Cores para Peso normal */
+.classificacao.peso-normal {
+    /* 105 - Fundo verde claro */
+    background: #d4edda;
+    /* 106 - Texto verde escuro */
+    color: #155724;
+}
+
+/* 107 - Cores para Sobrepeso */
+.classificacao.sobrepeso {
+    /* 108 - Fundo amarelo claro */
+    background: #fff3cd;
+    /* 109 - Texto amarelo escuro */
+    color: #856404;
+}
+
+/* 110 - Cores para Obesidade */
+.classificacao.obesidade {
+    /* 111 - Fundo vermelho claro */
+    background: #f8d7da;
+    /* 112 - Texto vermelho escuro */
+    color: #721c24;
+}
+
+/* 113 - Box de recomendações */
+.recomendacoes {
+    /* 114 - Margem superior de 20px */
+    margin-top: 20px;
+    /* 115 - Espaçamento interno de 15px em todos os lados */
+    padding: 15px;
+    /* 116 - Fundo branco */
+    background: white;
+    /* 117 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 118 - Barra lateral roxa de 4px na esquerda */
+    border-left: 4px solid #667eea;
+}
+
+/* 119 - Título da seção de recomendações */
+.recomendacoes h3 {
+    /* 120 - Cor cinza escuro */
+    color: #333;
+    /* 121 - Margem inferior de 10px */
+    margin-bottom: 10px;
+    /* 122 - Tamanho da fonte */
+    font-size: 16px;
+}
+
+/* 123 - Lista de recomendações */
+.recomendacoes ul {
+    /* 124 - Remove os marcadores padrão (bolinhas) */
+    list-style: none;
+    /* 125 - Remove o padding padrão */
+    padding: 0;
+}
+
+/* 126 - Cada item da lista de recomendações */
+.recomendacoes li {
+    /* 127 - Espaçamento interno: 5px em cima/baixo e 0 nas laterais */
+    padding: 5px 0;
+    /* 128 - Cor cinza escuro */
+    color: #555;
+    /* 129 - Tamanho da fonte */
+    font-size: 14px;
+}
+
+/* 130 - Adiciona marcador personalizado antes de cada item */
+.recomendacoes li:before {
+    /* 131 - Adiciona um bullet point */
+    content: "• ";
+    /* 132 - Cor roxa */
+    color: #667eea;
+    /* 133 - Negrito */
+    font-weight: bold;
+}
+
+/* 134 - Box informativo sobre o IMC */
+.info-box {
+    /* 135 - Margem superior de 20px */
+    margin-top: 20px;
+    /* 136 - Espaçamento interno de 15px em todos os lados */
+    padding: 15px;
+    /* 137 - Fundo azul claro */
+    background: #e7f3ff;
+    /* 138 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 139 - Barra lateral azul de 4px na esquerda */
+    border-left: 4px solid #2196F3;
+}
+
+/* 140 - Título do box informativo */
+.info-box h4 {
+    /* 141 - Cor azul escuro */
+    color: #1976D2;
+    /* 142 - Margem inferior de 5px */
+    margin-bottom: 5px;
+}
+
+/* 143 - Parágrafo do box informativo */
+.info-box p {
+    /* 144 - Cor cinza escuro */
+    color: #555;
+    /* 145 - Tamanho da fonte */
+    font-size: 13px;
+    /* 146 - Altura da linha (espaçamento entre linhas) */
+    line-height: 1.6;
+}
+
+/* 147 - Estilo para mensagens de erro */
+.error {
+    /* 148 - Cor vermelha */
+    color: #dc3545;
+    /* 149 - Tamanho da fonte */
+    font-size: 14px;
+    /* 150 - Margem superior de 5px */
+    margin-top: 5px;
+    /* 151 - Oculta inicialmente */
+    display: none;
+}
+
+/* 152 - Quando a classe 'show' é adicionada, a mensagem de erro é exibida */
+.error.show {
+    /* 153 - Torna a mensagem visível */
+    display: block;
+}
+
+/* 154 - Botão para limpar resultados */
+.btn-limpar {
+    /* 155 - Ocupa toda a largura disponível */
+    width: 100%;
+    /* 156 - Espaçamento interno de 10px em todos os lados */
+    padding: 10px;
+    /* 157 - Fundo cinza */
+    background: #6c757d;
+    /* 158 - Texto branco */
+    color: white;
+    /* 159 - Remove a borda padrão */
+    border: none;
+    /* 160 - Arredonda as bordas em 10px */
+    border-radius: 10px;
+    /* 161 - Tamanho da fonte */
+    font-size: 14px;
+    /* 162 - Muda o cursor para mãozinha */
+    cursor: pointer;
+    /* 163 - Margem superior de 10px */
+    margin-top: 10px;
+    /* 164 - Transição suave para mudança de cor de fundo */
+    transition: background 0.3s;
+}
+
+/* 165 - Efeito hover do botão de limpar */
+.btn-limpar:hover {
+    /* 166 - Escurece o fundo quando o mouse passa por cima */
+    background: #5a6268;
+}
+
+/* 167 - Media query para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+
+    /* 168 - Container com padding reduzido */
+    .container {
+        /* 169 - Reduz o padding para 20px em telas pequenas */
+        padding: 20px;
+    }
+
+    /* 170 - Título com tamanho reduzido */
+    h1 {
+        /* 171 - Reduz o tamanho do título para 22px */
+        font-size: 22px;
+    }
+}
